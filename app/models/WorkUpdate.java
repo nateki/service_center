@@ -8,20 +8,29 @@ import play.db.jpa.*;
 @Entity
 public class WorkUpdate extends Model {
 
-    public String author;
+    public String ticket_no;
+    public String status;
     public Date UpdatedAt;
+    @ManyToOne
+    public Customer customer;
+    @ManyToOne
+    public Item item;
+    @ManyToOne
+    public Service service;
+    @ManyToOne
+    public ServiceEngineer serviceEngineer;
 
     @Lob
     public String content;
 
-    @ManyToOne
-    public Item item;
-
-    public WorkUpdate(Item item, String author, String content) {
+    public WorkUpdate(Customer customer, Service service,  Item item, String status) {
         this.item = item;
-        this.author = author;
-        this.content = content;
+        this.customer = customer;
+        this.service = service;
+        this.status = status;
         this.UpdatedAt = new Date();
     }
-
+public String toString() {
+    return ticket_no;
+}
 }

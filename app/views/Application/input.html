@@ -1,0 +1,45 @@
+<h3>Add Customer</h3>
+   #{form @Application.add_Service()}
+    <p>
+        <label for="service_name">New Service name: </label>
+        <input type="text" name="service_name" id="service_name" />
+    </p>
+    <p>
+          <label for="service_description">New Service name: </label>
+          <textarea name="service_description" id="service_description"></textarea>
+    </p>
+     <p>
+        <input type="submit" value="Submit" />
+    </p>
+   #{/form}
+#{form @Application.add_Item()}
+    <p>
+        <label for="item_name">New item name: </label>
+        <input type="text" name="item_name" id="item_name" />
+    </p>
+      <p>
+        <input type="submit" value="Submit" />
+    </p>
+   #{/form}
+   #{form @Application.add_Customer()} 
+    <p>
+        <label for="email">Email ID: </label>
+        <input type="text" name="email" id="email" />
+    </p>
+    <p>
+        <label for="password">Password : </label>
+        <input type="text" name="password" id="password" />
+    </p>
+    <p>
+        <label for="fullname">Customer name : </label>
+        <input type="text" name="fullname" id="fullname" />
+        </p>
+      <p>
+        <input type="submit" value="Submit" />
+    </p>
+    #{/form}
+   
+ 
+<!--
+#{welcome /}
+-->

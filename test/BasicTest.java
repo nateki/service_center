@@ -3,12 +3,15 @@ import java.util.*;
 import play.test.*;
 import models.*;
 
+
 public class BasicTest extends UnitTest {
-     @Before
+    @Before
     public void setup() {
         Fixtures.deleteDatabase();
+    
     }
-@Test
+     
+     @Test
 public void createAndRetrieveCustomer() {
     // Create a new Customer and save it
     new Customer("bob@gmail.com", "secret", "Bob").save();

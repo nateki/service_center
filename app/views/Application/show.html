@@ -1,0 +1,24 @@
+
+
+<p>
+    ${c.email}
+</p>
+#{list items:c.services, as:'service'}
+<p>
+    ${service.service_name}
+    ${service.service_description}
+</p>
+#{/list}
+#{list items:c.items, as:'item'}
+<p>
+   ${item.item_name}
+    </p>
+#{/list}
+<h3> ${c.email} chose : </h3>
+
+<p>
+    ${i.item_name}
+</p>
+<p>
+    ${s.service_description}
+</p>
