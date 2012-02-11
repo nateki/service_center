@@ -42,5 +42,14 @@ public class Application extends Controller {
            Customer.find("select distinct c1 from Customer c1 where c1.email = :email").bind("email",email).first();
            render(c1,i,s);
        }
-
-}
+       public static void service()
+        {
+            List<WorkUpdate> new_workUpdates = WorkUpdate.find("byStatus","new").fetch();
+            List<WorkUpdate> in_queue_workUpdates = WorkUpdate.find("byStatus","in queue").fetch();
+            List<WorkUpdate> started_workUpdates = WorkUpdate.find("byStatus","started").fetch();
+            List<WorkUpdate> WIP_workUpdates = WorkUpdate.find("byStatus","WIP").fetch();
+            List<WorkUpdate> RIP_workUpdates = WorkUpdate.find("byStatus","RIP").fetch();
+            System.out.println(new_workUpdates);
+            render(new_workUpdates, in_queue_workUpdates, started_workUpdates, WIP_workUpdates, RIP_workUpdates);
+        }
+  }

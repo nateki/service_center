@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+  
+   <h1>Service Center</h1>
+<h1>List of Items for which services are offered</h1>
+#{list items:new_workUpdates, as:'new1'}
+<p>
+   <input type="checkbox" name="status" value="${new1.status}" /> ${new1.status}<br />
+   <li id="next">
+            <a href="@{Application.show(post.next().id)}">
+                ${new1.status}
+            </a>
+        </li>
+    </p>
+#{/list}
+ 
+<a href="@{Application.input()}"> Add Item or Service or Customer </a>
+
+
+
+    

@@ -2,4 +2,4 @@
 
 require:
     - play
-    - play -> crud
+    - play -> crud  

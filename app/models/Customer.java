@@ -4,12 +4,16 @@ import java.util.*;
 import javax.persistence.*;
 
 import play.db.jpa.*;
+import play.data.validation.*;
 
 @Entity
 public class Customer extends Model {
-
+    @Email
+    @Required
     public String email;
+    @Required
     public String password;
+    @Required
     public String fullname;
     public String status;
     @ManyToMany(cascade=CascadeType.PERSIST)

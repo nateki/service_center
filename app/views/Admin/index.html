@@ -1,0 +1,13 @@
+Welcome ${user}!
+<h3>Welcome ${user}, <span> No. of new tickets : ${new_workUpdates.size() ?: 'no'}
+${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
+
+#{list items:new_workUpdates, as:'new1'}
+    <p class="post ${new1_parity}"> <a href="@{Admin.form(new1.id)}">${new1.status}</a>
+    </p>
+#{/list}
+<!--
+<p id="newPost" >
+    <a href="#"><span>+</span> write a new post</a>
+</p>
+-->
