@@ -1,31 +1,31 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
 
 
-   #{form @Application.show()}
-   <h1>Service Center</h1>
-<h1>List of Items for which services are offered</h1>
+
+#{form @Application.show()}
+<h1>Service Center</h1>
+<h4>List of Items for which services are offered</h4>
 #{list items:all_items, as:'item'}
 <p>
-   <input type="checkbox" name="item_name" value="${item.item_name}" /> ${item.item_name}<br />
-    </p>
+    <input type="checkbox" name="item_name" value="${item.item_name}" /> ${item.item_name}<br />
+</p>
 #{/list}
- <h1>Services offered</h1>
- #{list items:all_services, as:'service'}
+<h4>Services offered</h4>
+#{list items:all_services, as:'service'}
 <p>
     <input type="checkbox" name="service_name" value="${service.service_name}" /> ${service.service_name}<br />
 
 </p>
- #{/list}
-    <p>
-        <label for="email">Email ID: </label>
-        <input type="text" name="email" id="email" />
-    </p>
+#{/list}
+<p>
+    <label for="email">Email ID: </label>
+    <input type="text" name="email" id="email" />
+</p>
 
-      <p>
-        <input type="submit" value="Submit" />
-    </p>
-    #{/form}
+<p>
+    <input type="submit" value="Submit" />
+</p>
+#{/form}
 <a href="@{Application.input()}"> Add Item or Service or Customer </a>
 
 

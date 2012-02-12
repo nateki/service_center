@@ -9,14 +9,15 @@ import play.db.jpa.*;
 public class Service extends Model {
 
     public String service_name;
-        @Lob
+    @Lob
     public String service_description;
 
     public Service(String service_name, String service_description) {
         this.service_name = service_name;
         this.service_description = service_description;
     }
-public String toString() {
-    return service_name;
-}
+
+    public String toString() {
+        return service_name;
+    }
 }

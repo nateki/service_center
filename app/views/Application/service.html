@@ -1,22 +1,20 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+<h3>Welcome ${user}, <span> No. of new tickets : ${new_workUpdates.size() ?: 'no'}
+        ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
 
-  
-   <h1>Service Center</h1>
-<h1>List of Items for which services are offered</h1>
 #{list items:new_workUpdates, as:'new1'}
-<p>
-   <input type="checkbox" name="status" value="${new1.status}" /> ${new1.status}<br />
-   <li id="next">
-            <a href="@{Application.show(post.next().id)}">
-                ${new1.status}
-            </a>
-        </li>
-    </p>
+<p class="post ${new1_parity}"> <a href="@{Application.form(new1.id)}">${new1.status}</a>
+</p>
 #{/list}
- 
-<a href="@{Application.input()}"> Add Item or Service or Customer </a>
-
-
-
-    
+<h3> <span> No. of tickets in Queue : ${started_workUpdates.size() ?: 'no'}
+        ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
+#{list items:started_workUpdates, as:'started'}
+<p class="post ${started_parity}"> <a href="@{Application.form(started.id)}">${started.ticket_no}</a>
+</p>
+#{/list}
+<h3> <span> No. of closed tickets : ${closed_workUpdates.size() ?: 'no'}
+        ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
+#{list items:closed_workUpdates, as:'closed'}
+<p class="post ${closed_parity}"> <a href="@{Application.form(closed.id)}">${closed.ticket_no}</a>
+</p>
+#{/list}

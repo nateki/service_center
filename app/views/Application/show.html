@@ -1,20 +1,5 @@
-
-
-<p>
-    ${c.email}
-</p>
-#{list items:c.services, as:'service'}
-<p>
-    ${service.service_name}
-    ${service.service_description}
-</p>
-#{/list}
-#{list items:c.items, as:'item'}
-<p>
-   ${item.item_name}
-    </p>
-#{/list}
-<h3> ${c.email} chose : </h3>
+#{extends 'main.html' /}
+<h3> ${c.email} recently chose : </h3>
 
 <p>
     ${i.item_name}
@@ -22,3 +7,16 @@
 <p>
     ${s.service_description}
 </p>
+
+<p>
+    ${c.email} 's history
+</p>
+#{list items:c.services, as:'service'}
+#{list items:c.items, as:'item'}
+<p>
+    ${service.service_name}
+    ${item.item_name}
+</p>
+#{/list}
+#{/list}
+

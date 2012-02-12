@@ -7,15 +7,15 @@ GET     /                                       Application.index
 
 # Get admin pages to edit
 
-GET     /admin/new                          Admin.form
-POST    /admin/new                          Admin.save
-
+GET     /admin/new                          Application.form
+POST    /admin/new                          Application.save
+GET     /admin/                             module:crud
 # Administration
-GET     /admin/?                                Admin.index
+GET     /service/?                                Application.index
 # Import CRUD routes
-*       /service                                  module:crud
+#*       /service                                  module:crud
 # Import Secure routes
-*       /                                       module:secure
+#*       /                                       module:secure
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

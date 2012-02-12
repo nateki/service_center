@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{form @save(workUpdate?.id)}
+<p>
+    #{field 'status'}
+    <label>Status:</label>
+    <input type="text" name="${field.name}"
+           value="${workUpdate?.status}" />
+    #{/field}
+</p>
+<p>
+    #{field 'ticket_no'}
+    <label>Ticket No. :</label>
+    <input type="text" name="${field.name}"
+           value="${workUpdate?.ticket_no}" />
+    #{/field}
+</p>
+<p>
+    #{field 'Completion_Date'}
+    <label>Completion Date (YYYY-MM-DD format ):</label>
+    <input type="text" name="${field.name}"
+           value="${workUpdate?.Completion_Date}" />
+    #{/field}
+</p>
+<p>
+    <input type="submit" value="Edit ticket" />
+</p>
+#{/form}

@@ -9,10 +9,12 @@ import play.db.jpa.*;
 public class Item extends Model {
 
     public String item_name;
+
     public Item(String item_name) {
         this.item_name = item_name;
-            }
-    public String toString() {
-    return item_name;
-}
     }
+
+    public String toString() {
+        return item_name;
+    }
+}

@@ -8,6 +8,7 @@ import play.data.validation.*;
 
 @Entity
 public class Customer extends Model {
+
     @Email
     @Required
     public String email;
@@ -16,10 +17,11 @@ public class Customer extends Model {
     @Required
     public String fullname;
     public String status;
-    @ManyToMany(cascade=CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     public List<Item> items;
-    @ManyToMany(cascade=CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     public List<Service> services;
+
     public Customer(String email, String password, String fullname) {
         this.items = new ArrayList<Item>();
         this.services = new ArrayList<Service>();
@@ -28,18 +30,19 @@ public class Customer extends Model {
         this.fullname = fullname;
         this.status = "new";
     }
-    public Customer addItemService(Item i,Service s) {
-    this.items.add(i);
-    this.services.add(s);
-    this.save();
-    return this;
-}
-     public static Customer connect(String email, String password) {
-    return find("byEmailAndPassword", email, password).first();
-}
-     public String toString() {
-    return fullname;
-}
 
-}
+    public Customer addItemService(Item i, Service s) {
+        this.items.add(i);
+        this.services.add(s);
+        this.save();
+        return this;
+    }
 
+    public static Customer connect(String email, String password) {
+        return find("byEmailAndPassword", email, password).first();
+    }
+
+    public String toString() {
+        return fullname;
+    }
+}
