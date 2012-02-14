@@ -1,5 +1,6 @@
 #{extends 'main.html' /}
-<h3>Welcome ${user}, <span> No. of new tickets : ${new_workUpdates.size() ?: 'no'}
+<h2> Welcome Service Engineer, </h2>
+<h3><span> No. of new tickets : ${new_workUpdates.size() ?: 'no'}
         ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
 
 #{list items:new_workUpdates, as:'new1'}

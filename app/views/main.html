@@ -2,10 +2,13 @@
 
 <html>
     <body>
-         <ul>
-            <li> <a href="@{Application.service()}">Service Engineer's Log in </a> </li>
-            <li> <a href="@{Application.index()}">Customer's Log in </a> </li>
-        </ul>
-        #{doLayout /}
-           </body>
+    </ul>
+    <ul id="tools">
+        <li> <a href="@{Admin.index()}">Log in as admin</a> </li>
+        <li> <a href="@{Application.service()}">Service Engineer's Log in </a> </li>
+        <li> <a href="@{Application.index()}">Customer's Log in </a> </li>
+        <li> <a href="@{Application.input()}"> Add Item or Service or Customer </a> </li>
+    </ul>
+    #{doLayout /}
+</body>
 </html>

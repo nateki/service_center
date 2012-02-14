@@ -1,12 +1,14 @@
 #{extends 'main.html' /}
-<h3>Add Customer</h3>
+<h3>You are logged in as a Customer</h3>
+
 #{form @Application.add_Service()}
 <p>
+    <h4> Add Service :</h4>
     <label for="service_name">New Service name: </label>
     <input type="text" name="service_name" id="service_name" />
 </p>
 <p>
-    <label for="service_description">New Service name: </label>
+    <label for="service_description"> Give a brief description about the service you want to create: </label>
     <textarea name="service_description" id="service_description"></textarea>
 </p>
 <p>
@@ -15,6 +17,7 @@
 #{/form}
 #{form @Application.add_Item()}
 <p>
+    <h4> Add Item :</h4>
     <label for="item_name">New item name: </label>
     <input type="text" name="item_name" id="item_name" />
 </p>
@@ -24,6 +27,7 @@
 #{/form}
 #{form @Application.add_Customer()} 
 <p>
+    <h4> Add Customer :</h4>
     <label for="email">Email ID: </label>
     <input type="text" name="email" id="email" />
 </p>

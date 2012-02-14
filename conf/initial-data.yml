@@ -1,0 +1,38 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+Item(i1):
+ item_name: item1
+ 
+Service(s1):
+  service_name: service1
+  service_description: service_description1
+
+Customer(bob):
+   email: admin@gmail.com
+   password: password
+   fullname: Bob
+   isAdmin:  true
+#Customer(aob):
+#    email:          aob@gmail.com
+#    password:       secret
+#    fullname:       Aob
+
+#    Post(jeffPost):
+#    title:          The MVC application
+#    postedAt:       2009-06-06
+#    author:         jeff
+#    tags:
+#                    - play
+#                    - architecture
+#                    - mvc
+#    content:        >
+#                    A Play! application follows the MVC architectural pattern as applied to the
+#                    architecture of the Web.
+#
+#    Comment(c1):
+#    author:         Guest
+#    content:        >
+#                    You are right !
+#    postedAt:       2009-06-14
+#    post:           firstBobPost

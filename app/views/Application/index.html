@@ -1,9 +1,7 @@
 #{extends 'main.html' /}
-
-
-
 #{form @Application.show()}
 <h1>Service Center</h1>
+You are logged in as Customer
 <h4>List of Items for which services are offered</h4>
 #{list items:all_items, as:'item'}
 <p>
@@ -26,6 +24,6 @@
     <input type="submit" value="Submit" />
 </p>
 #{/form}
-<a href="@{Application.input()}"> Add Item or Service or Customer </a>
+
 
 

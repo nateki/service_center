@@ -2,6 +2,16 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# Import Secure routes
+#The Secure module comes with a set of default routes. Enabling them.
+*       /                                       module:secure
+# Admin
+
+GET     /admin/?                            Admin.index
+# Import CRUD routes
+*      /admin              module:crud
+
+
 # Home page
 GET     /                                       Application.index
 
@@ -9,13 +19,12 @@ GET     /                                       Application.index
 
 GET     /admin/new                          Application.form
 POST    /admin/new                          Application.save
-GET     /admin/                             module:crud
+
+
 # Administration
 GET     /service/?                                Application.index
-# Import CRUD routes
-#*       /service                                  module:crud
-# Import Secure routes
-#*       /                                       module:secure
+
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

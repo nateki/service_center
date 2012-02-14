@@ -19,14 +19,17 @@ public class Application extends Controller {
 
     public static void add_Customer(String email, String password, String fullname) {
         Customer c = new Customer(email, password, fullname).save();
+        index();
     }
 
     public static void add_Item(String item_name) {
         Item i = new Item(item_name).save();
+        index();
     }
 
     public static void add_Service(String service_name, String service_description) {
         Service s = new Service(service_name, service_description).save();
+        index();
     }
 
     public static void input() {

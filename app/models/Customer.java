@@ -17,6 +17,7 @@ public class Customer extends Model {
     @Required
     public String fullname;
     public String status;
+    public boolean isAdmin;
     @ManyToMany(cascade = CascadeType.PERSIST)
     public List<Item> items;
     @ManyToMany(cascade = CascadeType.PERSIST)

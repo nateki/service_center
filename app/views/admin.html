@@ -1,14 +1,60 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
     <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Administration</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        #{get 'moreStyles' /}
+        <link rel="stylesheet" type="text/css" media="screen"
+              href="@{'/public/stylesheets/main.css'}" />
+        <link rel="shortcut icon" type="image/png"
+              href="@{'/public/images/favicon.png'}" />
+        <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}"></script>
+        <script src="@{'/public/javascripts/jquery.tools-1.2.5.toolbox.expose.min.js'}"></script>
     </head>
-    <body>
-        TODO write content
+    <body id="admin">
+
+        <div id="header">
+            <div id="logo">
+                <h1><span>Service Center Administration</span></h1>
+                </div>
+            You are logged in as Admin
+            <ul id="tools">
+                <li>
+                    <a href="@{Secure.logout()}">Log out</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="main">
+            <!--    #{doLayout /} -->
+            <ul id="adminMenu">
+                <li class="${request.controller == 'Admin' ? 'selected' : ''}">
+                    <a href="@{Admin.index()}">Admin home</a>
+                </li>
+                #{secure.check 'admin'}
+                <li class="${request.controller == 'Items' ? 'selected' : ''}">
+                    <a href="@{Items.list()}">Items</a>
+                </li>
+                <li class="${request.controller == 'Customers' ? 'selected' : ''}">
+                    <a href="@{Customers.list()}">Customers</a>
+                </li>
+                <li class="${request.controller == 'Services' ? 'selected' : ''}">
+                    <a href="@{Services.list()}">Services</a>
+                </li>
+                <li class="${request.controller == 'WorkUpdates' ? 'selected' : ''}">
+                    <a href="@{WorkUpdates.list()}">WorkUpdates</a>
+                </li>
+                #{/secure.check}
+            </ul>
+
+            <!--     #{doLayout /} -->
+        </div>
+
+        <p id="footer">
+            Service Center was built with the
+            <a href="http://www.playframework.org">Play framework</a>
+            as a tutorial application.
+        </p>
+
     </body>
 </html>
