@@ -12,18 +12,54 @@ public class Security extends Secure.Security {
 
     static boolean authenticate(String username, String password) {
         //return true;
+        System.out.println(" authenticate");
         return Customer.connect(username, password) != null;
     }
+
     static void onDisconnected() {
-    Application.index();
-}
-    static void onAuthenticated() {
-    Admin.index();
-}
-    static boolean check(String profile) {
-    if("admin".equals(profile)) {
-        return Customer.find("byEmail", connected()).<Customer>first().isAdmin;
+        System.out.println(" OnDisconnected");
+        Application.index();
     }
-    return false;
-}
+
+    static void onAuthenticated() {
+        System.out.println(" onAuthenticated");
+        Customer c = Customer.find("byEmail", connected()).first();
+        switch (c.customer_type) {
+            case CUSTOMER:
+                Application.index();
+                break;
+            case ADMIN:
+                Admin.index();
+                break;
+            case SERVICE_ENGINEER:
+                Application.service();
+                break;
+            default:
+                Application.index();
+                break;
+        }
+
+    }
+
+    static boolean check(String profile) {
+
+
+
+        System.out.println("check");
+        System.out.println(Customer.find("byEmail", connected()).<Customer>first().isAdmin);
+        System.out.println(Customer.find("byEmail", connected()).<Customer>first());
+        Customer c = Customer.find("byEmail", connected()).<Customer>first();
+        System.out.println(c);
+
+        System.out.println(connected());
+        System.out.println(c.customer_type);
+
+        if (profile.equalsIgnoreCase(c.customer_type.name())) {
+            return true;
+        }
+//        if ("admin".equals(profile)) {
+//            return Customer.find("byEmail", connected()).<Customer>first().isAdmin;
+//        }
+        return false;
+    }
 }

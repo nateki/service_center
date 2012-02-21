@@ -3,9 +3,9 @@
 
 #{form @Application.add_Service()}
 <p>
-    <h4> Add Service :</h4>
-    <label for="service_name">New Service name: </label>
-    <input type="text" name="service_name" id="service_name" />
+<h4> Add Service :</h4>
+<label for="service_name">New Service name: </label>
+<input type="text" name="service_name" id="service_name" />
 </p>
 <p>
     <label for="service_description"> Give a brief description about the service you want to create: </label>
@@ -17,9 +17,9 @@
 #{/form}
 #{form @Application.add_Item()}
 <p>
-    <h4> Add Item :</h4>
-    <label for="item_name">New item name: </label>
-    <input type="text" name="item_name" id="item_name" />
+<h4> Add Item :</h4>
+<label for="item_name">New item name: </label>
+<input type="text" name="item_name" id="item_name" />
 </p>
 <p>
     <input type="submit" value="Submit" />
@@ -27,9 +27,9 @@
 #{/form}
 #{form @Application.add_Customer()} 
 <p>
-    <h4> Add Customer :</h4>
-    <label for="email">Email ID: </label>
-    <input type="text" name="email" id="email" />
+<h4> Add Customer :</h4>
+<label for="email">Email ID: </label>
+<input type="text" name="email" id="email" />
 </p>
 <p>
     <label for="password">Password : </label>
@@ -38,6 +38,15 @@
 <p>
     <label for="fullname">Customer name : </label>
     <input type="text" name="fullname" id="fullname" />
+</p>
+<p>
+    <label for="customer_type">Customer type : </label>
+    <!--    <input type="text" name="customer_type" id="customer_type" />-->
+    #{list items:customer_types, as:'customer_type'}
+    <select>
+        <option>customer_type</option>
+    </select>
+    #{/list}
 </p>
 <p>
     <input type="submit" value="Submit" />

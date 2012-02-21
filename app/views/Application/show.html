@@ -1,4 +1,5 @@
 #{extends 'main.html' /}
+#{if c}
 <h3> ${c.email} recently chose : </h3>
 
 <p>
@@ -9,14 +10,20 @@
 </p>
 
 <p>
-    ${c.email} 's history
+    ${c.email} as ${c.customer_type} 's history
 </p>
 #{list items:c.services, as:'service'}
 #{list items:c.items, as:'item'}
 <p>
+    ${c.email}
     ${service.service_name}
     ${item.item_name}
 </p>
 #{/list}
 #{/list}
-
+#{/if}
+#{else}
+<div class="empty">
+    Please contact out help desk.
+</div>
+#{/else

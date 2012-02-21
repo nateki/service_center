@@ -1,38 +1,86 @@
 # you describe your data using the YAML notation here
 # and then load them using Fixtures.load("data.yml")
-
 Item(i1):
- item_name: item1
+    item_name: item1
  
 Service(s1):
-  service_name: service1
-  service_description: service_description1
+    service_name: service1
+    service_description: service_description1
 
 Customer(bob):
    email: admin@gmail.com
    password: password
-   fullname: Bob
+   fullname: Admin
    isAdmin:  true
-#Customer(aob):
-#    email:          aob@gmail.com
-#    password:       secret
-#    fullname:       Aob
+   customer_type: ADMIN
 
-#    Post(jeffPost):
-#    title:          The MVC application
-#    postedAt:       2009-06-06
-#    author:         jeff
-#    tags:
-#                    - play
-#                    - architecture
-#                    - mvc
-#    content:        >
-#                    A Play! application follows the MVC architectural pattern as applied to the
-#                    architecture of the Web.
-#
-#    Comment(c1):
-#    author:         Guest
-#    content:        >
-#                    You are right !
-#    postedAt:       2009-06-14
-#    post:           firstBobPost
+Item(item2):
+  item_name: item2
+
+Service(service2):
+  service_name: service2
+  service_description: service_description2
+
+Item(item3):
+  item_name: item3
+
+Service(service3):
+  service_name: service4
+  service_description: service_description2
+
+Item(item5):
+  item_name: item5
+
+Service(service5):
+  service_name: service5
+  service_description: service_description5
+
+Item(item6):
+  item_name: item6
+
+Service(service6):
+  service_name: service6
+  service_description: service_description6
+
+Item(item7):
+  item_name: item7
+
+Service(service7):
+  service_name: service7
+  service_description: service_description7
+
+Customer(admin):
+    email:          admin@servicecenter.com
+    password:       admin
+    fullname:       Admin
+    isAdmin:        true
+    customer_type: ADMIN
+
+Customer(customer1):
+    email:          customer1@gmail.com
+    password:       customer1
+    fullname:       customer1
+    isAdmin:        false
+    customer_type:  CUSTOMER
+
+Customer(customer2):
+    email:          customer2@gmail.com
+    password:       customer2
+    fullname:       customer2
+    isAdmin:        false
+    customer_type:  CUSTOMER
+
+Customer(ServiceEngineer1):
+    email:          serviceEngineer1@gmail.com
+    password:       serviceEngineer1
+    fullname:       serviceEngineer1
+    isAdmin:        false
+    customer_type:  SERVICE_ENGINEER
+
+Customer(ServiceEngineer2):
+    email:          serviceEngineer2@gmail.com
+    password:       serviceEngineer2
+    fullname:       serviceEngineer2
+    isAdmin:        false
+    customer_type:  SERVICE_ENGINEER
+

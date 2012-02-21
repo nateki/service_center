@@ -22,14 +22,16 @@ public class Customer extends Model {
     public List<Item> items;
     @ManyToMany(cascade = CascadeType.PERSIST)
     public List<Service> services;
+    public Customer_type customer_type;
 
-    public Customer(String email, String password, String fullname) {
+    public Customer(String email, String password, String fullname, Customer_type customer_type) {
         this.items = new ArrayList<Item>();
         this.services = new ArrayList<Service>();
         this.email = email;
         this.password = password;
         this.fullname = fullname;
         this.status = "new";
+        this.customer_type = customer_type;
     }
 
     public Customer addItemService(Item i, Service s) {
@@ -37,6 +39,7 @@ public class Customer extends Model {
         this.services.add(s);
         this.save();
         return this;
+
     }
 
     public static Customer connect(String email, String password) {

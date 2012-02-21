@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 
 <html>
+    <head>
+        <title>Service Center</title>
+        <link rel="stylesheet" type="text/css" media="screen"
+              href="@{'/public/stylesheets/bootstrap.css'}" />
+
+    </head>
     <body>
-    </ul>
-    <ul id="tools">
-        <li> <a href="@{Admin.index()}">Log in as admin</a> </li>
-        <li> <a href="@{Application.service()}">Service Engineer's Log in </a> </li>
-        <li> <a href="@{Application.index()}">Customer's Log in </a> </li>
-        <li> <a href="@{Application.input()}"> Add Item or Service or Customer </a> </li>
-    </ul>
+        Welcome ${user}!
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container"></div>
+                <a class="btn" href="@{Admin.index()}">Log in as admin</a>
+                <a class="btn" href="@{Application.service()}">Service Engineer's Log in </a>
+                <a class="btn" href="@{Application.index()}">Customer's Log in </a>
+                <a class="btn" href="@{Application.input()}"> Add Item or Service or Customer </a>
+                <a class="btn" href="@{Secure.logout()}">Log out</a>
+            </div>
+        </div>
+    </div>
+    <!--            <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Action
+        <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+        <a class="btn" href="@{Admin.index()}">Log in as admin</a>
+             <a class="btn" href="@{Application.service()}">Service Engineer's Log in </a>
+             <a class="btn" href="@{Application.index()}">Customer's Log in </a>
+             <a class="btn" href="@{Application.input()}"> Add Item or Service or Customer </a>
+        </ul>
+        </div>-->
+    <!--        <div id="header">
+                <div class="btn-toolbar">
+                <div class=""btn-group"">
+
+             <a class="btn" href="@{Admin.index()}">Log in as admin</a>
+             <a class="btn" href="@{Application.service()}">Service Engineer's Log in </a>
+             <a class="btn" href="@{Application.index()}">Customer's Log in </a>
+             <a class="btn" href="@{Application.input()}"> Add Item or Service or Customer </a>
+        </div>
+                    </div>-->
+    <!--    </ul>
+        <ul id="tools">
+            <li> <a href="@{Admin.index()}">Log in as admin</a> </li>
+            <li> <a href="@{Application.service()}">Service Engineer's Log in </a> </li>
+            <li> <a href="@{Application.index()}">Customer's Log in </a> </li>
+            <li> <a href="@{Application.input()}"> Add Item or Service or Customer </a> </li>
+        </ul>-->
     #{doLayout /}
 </body>
 </html>

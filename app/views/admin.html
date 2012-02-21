@@ -1,22 +1,19 @@
 <!DOCTYPE html>
+#{extends 'main.html' /}
+Welcome ${user}!
 <html>
     <head>
         <title>Administration</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        #{get 'moreStyles' /}
         <link rel="stylesheet" type="text/css" media="screen"
-              href="@{'/public/stylesheets/main.css'}" />
-        <link rel="shortcut icon" type="image/png"
-              href="@{'/public/images/favicon.png'}" />
-        <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}"></script>
-        <script src="@{'/public/javascripts/jquery.tools-1.2.5.toolbox.expose.min.js'}"></script>
+              href="@{'/public/stylesheets/bootstrap.css'}" />
+
     </head>
     <body id="admin">
 
         <div id="header">
             <div id="logo">
                 <h1><span>Service Center Administration</span></h1>
-                </div>
+            </div>
             You are logged in as Admin
             <ul id="tools">
                 <li>
