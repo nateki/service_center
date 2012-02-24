@@ -1,4 +1,11 @@
-#{extends 'main.html' /}
+<!--#{extends 'main.html' /}
+#{cache 'home-' + new_workUpdates.status, for:'15min'}
+
+#{list items:new_workUpdates, as:'new_workUpdate'}
+$(new_workUpdate.status)
+#{/list}
+	...
+#{/cache}
 <h2> Welcome Service Engineer, </h2>
 <h3><span> No. of new tickets : ${new_workUpdates.size() ?: 'no'}
         ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
@@ -18,4 +25,4 @@
 #{list items:closed_workUpdates, as:'closed'}
 <p class="post ${closed_parity}"> <a href="@{Application.form(closed.id)}">${closed.ticket_no}</a>
 </p>
-#{/list}
+#{/list}-->

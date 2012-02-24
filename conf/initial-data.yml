@@ -84,3 +84,21 @@ Customer(ServiceEngineer2):
     isAdmin:        false
     customer_type:  SERVICE_ENGINEER
 
+WorkUpdate(new):
+    status:   new
+    customer:   customer2
+    item: item2
+    service: service2
+
+WorkUpdate(started):
+    status:   started
+    customer:   customer2
+    item: item3
+    service: service2
+
+WorkUpdate(closed):
+    status:   closed
+    customer:   customer2
+    item: item6
+    Service: service3
+

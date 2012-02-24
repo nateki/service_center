@@ -16,6 +16,8 @@ import models.*;
 
 import notifiers.*;
 
+import play.cache.Cache;
+
 @With(Secure.class)
 public class Application extends Controller {
 
@@ -100,9 +102,14 @@ public class Application extends Controller {
         //get current date time with Date()
         Date date = new Date();
         System.out.println(dateFormat.format(date));
-        List<WorkUpdate> new_workUpdates = WorkUpdate.find("byStatus", "new").fetch();
-        List<WorkUpdate> started_workUpdates = WorkUpdate.find("byStatus", "started").fetch();
-        List<WorkUpdate> closed_workUpdates = WorkUpdate.find("byStatus", "closed").fetch();
+
+        //List<WorkUpdate> new_workUpdates = WorkUpdate.find("byStatus", "new").fetch();
+        //List<WorkUpdate> started_workUpdates = WorkUpdate.find("byStatus", "started").fetch();
+        //List<WorkUpdate> closed_workUpdates = WorkUpdate.find("byStatus", "closed").fetch();
+        //render(new_workUpdates, started_workUpdates, closed_workUpdates);
+        List<WorkUpdate> new_workUpdates = Cache.get("new_workUpdates", List.class);
+        List<WorkUpdate> started_workUpdates = Cache.get("started_workUpdates", List.class);
+        List<WorkUpdate> closed_workUpdates = Cache.get("closed_workUpdates", List.class);
         render(new_workUpdates, started_workUpdates, closed_workUpdates);
     }
 
