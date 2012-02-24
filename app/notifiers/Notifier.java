@@ -17,4 +17,5 @@ public class Notifier extends Mailer {
         addRecipient(workUpdate.customer.email);
         return sendAndWait(workUpdate);
     }
+    
 }

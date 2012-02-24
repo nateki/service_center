@@ -1,14 +1,25 @@
 #{extends 'main.html' /}
-#{if c}
+ <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container"></div>
+<a class="btn" href="@{Application.index()}">Customer's Home </a>
+</div>
+        </div>
 <h3> ${c.email} recently chose : </h3>
 
+
+
+#{if i}
 <p>
     ${i.item_name}
 </p>
+#{/if}
+#{if s}
 <p>
     ${s.service_description}
 </p>
-
+#{/if}
+#{if c}
 <p>
     ${c.email} as ${c.customer_type} 's history
 </p>
@@ -26,4 +37,4 @@
 <div class="empty">
     Please contact out help desk.
 </div>
-#{/else
+#{/else}

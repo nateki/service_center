@@ -1,5 +1,4 @@
 #{extends 'main.html' /}
-<a class="btn" href="@{Application.service_status()}"> Service Status </a>
 <h2> Welcome Service Engineer, </h2>
 <h3><span> No. of new tickets : ${new_workUpdates.size() ?: 'no'}
         ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>

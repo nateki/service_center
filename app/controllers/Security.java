@@ -46,15 +46,18 @@ public class Security extends Secure.Security {
 
 
         System.out.println("check");
-        System.out.println(Customer.find("byEmail", connected()).<Customer>first().isAdmin);
-        System.out.println(Customer.find("byEmail", connected()).<Customer>first());
-        Customer c = Customer.find("byEmail", connected()).<Customer>first();
-        System.out.println(c);
-
-        System.out.println(connected());
-        System.out.println(c.customer_type);
+//        System.out.println(Customer.find("byEmail", connected()).<Customer>first().isAdmin);
+//        System.out.println(Customer.find("byEmail", connected()).<Customer>first());
+       Customer c = Customer.find("byEmail", connected()).<Customer>first();
+//        System.out.println(c);
+//
+//        System.out.println(connected());
+//        System.out.println(c.customer_type);
 
         if (profile.equalsIgnoreCase(c.customer_type.name())) {
+        System.out.println(profile);
+        System.out.println(c.customer_type.name());
+        System.out.println(profile.equalsIgnoreCase(c.customer_type.name()));
             return true;
         }
 //        if ("admin".equals(profile)) {

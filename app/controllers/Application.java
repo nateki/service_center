@@ -7,6 +7,11 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import models.*;
 
 import notifiers.*;
@@ -51,19 +56,19 @@ public class Application extends Controller {
     @Check("CUSTOMER")
     public static void show(String email, String item_name, String service_name) {
 
-
-        if (email == null || item_name == null || service_name == null) {
+        Customer c = Customer.find("byEmail", Security.connected()).first();
+        if (item_name == null || service_name == null) {
             System.out.println("null empty render");
-            renderArgs.put("user", "Please choose a item and a service and enter the registered email id");
-            render();
+            renderArgs.put("user", "You did not choose any item or service now");
+            render(c);
 
         } else {
-            Customer c = Customer.find("byEmail", email).first();
-            if (c == null) {
-                System.out.println("empty render");
-                renderArgs.put("user", "You are not a registered customer. Please register");
-                render();
-            }
+
+//            if (c == null) {
+//                System.out.println("empty render");
+//                renderArgs.put("user", "You are not a registered customer. Please register");
+//                render();
+//            }
             System.out.println("add item service");
             Item i = Item.find("byItem_name", item_name).first();
             Service s = Service.find("byService_name", service_name).first();
@@ -75,9 +80,8 @@ public class Application extends Controller {
             System.out.println(cust_type);
 
             c.addItemService(i, s);
-            Customer c1 = Customer.find("byEmail", email).first();
             renderArgs.put("user", c.fullname);
-            render(c1, i, s);
+            render(c, i, s);
         }
     }
 
@@ -88,6 +92,26 @@ public class Application extends Controller {
         List<WorkUpdate> started_workUpdates = WorkUpdate.find("byStatus", "started").fetch();
         List<WorkUpdate> closed_workUpdates = WorkUpdate.find("byStatus", "closed").fetch();
         renderArgs.put("user", c.fullname);
+        render(new_workUpdates, started_workUpdates, closed_workUpdates);
+    }
+
+    public static void service_status() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        //get current date time with Date()
+        Date date = new Date();
+        System.out.println(dateFormat.format(date));
+        List<WorkUpdate> new_workUpdates = WorkUpdate.find("byStatus", "new").fetch();
+        List<WorkUpdate> started_workUpdates = WorkUpdate.find("byStatus", "started").fetch();
+        List<WorkUpdate> closed_workUpdates = WorkUpdate.find("byStatus", "closed").fetch();
+        render(new_workUpdates, started_workUpdates, closed_workUpdates);
+    }
+
+    public static void service_monitor(List new_workUpdates, List started_workUpdates, List closed_workUpdates) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        //get current date time with Date()
+        Date date = new Date();
+        System.out.println(dateFormat.format(date));
+
         render(new_workUpdates, started_workUpdates, closed_workUpdates);
     }
 

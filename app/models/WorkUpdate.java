@@ -32,6 +32,6 @@ public class WorkUpdate extends Model {
     }
 
     public String toString() {
-        return ticket_no;
+        return status;
     }
 }
