@@ -97,30 +97,8 @@ public class Application extends Controller {
         render(new_workUpdates, started_workUpdates, closed_workUpdates);
     }
 
-    public static void service_status() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        //get current date time with Date()
-        Date date = new Date();
-        System.out.println(dateFormat.format(date));
 
-        //List<WorkUpdate> new_workUpdates = WorkUpdate.find("byStatus", "new").fetch();
-        //List<WorkUpdate> started_workUpdates = WorkUpdate.find("byStatus", "started").fetch();
-        //List<WorkUpdate> closed_workUpdates = WorkUpdate.find("byStatus", "closed").fetch();
-        //render(new_workUpdates, started_workUpdates, closed_workUpdates);
-        List<WorkUpdate> new_workUpdates = Cache.get("new_workUpdates", List.class);
-        List<WorkUpdate> started_workUpdates = Cache.get("started_workUpdates", List.class);
-        List<WorkUpdate> closed_workUpdates = Cache.get("closed_workUpdates", List.class);
-        render(new_workUpdates, started_workUpdates, closed_workUpdates);
-    }
 
-    public static void service_monitor(List new_workUpdates, List started_workUpdates, List closed_workUpdates) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        //get current date time with Date()
-        Date date = new Date();
-        System.out.println(dateFormat.format(date));
-
-        render(new_workUpdates, started_workUpdates, closed_workUpdates);
-    }
 
     public static void form(Long id) {
         if (id != null) {

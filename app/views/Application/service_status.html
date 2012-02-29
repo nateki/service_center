@@ -1,28 +1,40 @@
-<!--#{extends 'main.html' /}
-#{cache 'home-' + new_workUpdates.status, for:'15min'}
+service_status.html
 
-#{list items:new_workUpdates, as:'new_workUpdate'}
-$(new_workUpdate.status)
-#{/list}
-	...
-#{/cache}
-<h2> Welcome Service Engineer, </h2>
-<h3><span> No. of new tickets : ${new_workUpdates.size() ?: 'no'}
-        ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
+<META HTTP-EQUIV="refresh" CONTENT="5">
+<FORM>
+<INPUT TYPE="button" onClick="history.go(0)" VALUE="Refresh">
+</FORM>
+<p>
+<h4> Current status at ${date} </h4>
+<li>No. of new tickets : ${new_workUpdates.size() ?: 'no'} ${new_workUpdates.pluralize('ticket', 'tickets')} so far</li>
 
 #{list items:new_workUpdates, as:'new1'}
-<p class="post ${new1_parity}"> <a href="@{Application.form(new1.id)}">${new1.status}</a>
-</p>
+
 #{/list}
-<h3> <span> No. of tickets in Queue : ${started_workUpdates.size() ?: 'no'}
-        ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
+<li>No. of tickets in Queue : ${started_workUpdates.size() ?: 'no'} ${new_workUpdates.pluralize('ticket', 'tickets')} so far</li>
 #{list items:started_workUpdates, as:'started'}
-<p class="post ${started_parity}"> <a href="@{Application.form(started.id)}">${started.ticket_no}</a>
-</p>
+
 #{/list}
-<h3> <span> No. of closed tickets : ${closed_workUpdates.size() ?: 'no'}
-        ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
+<li>No. of closed tickets : ${closed_workUpdates.size() ?: 'no'} ${new_workUpdates.pluralize('ticket', 'tickets')} so far</li>
 #{list items:closed_workUpdates, as:'closed'}
-<p class="post ${closed_parity}"> <a href="@{Application.form(closed.id)}">${closed.ticket_no}</a>
+
+#{/list}
+
 </p>
-#{/list}-->
+<p>
+<h4> Previous status at ${date_p} </h4>
+
+<li>No. of new tickets : ${new_workUpdates_p.size() ?: 'no'} ${new_workUpdates_p.pluralize('ticket', 'tickets')} so far</li>
+
+#{list items:new_workUpdates_p, as:'new1_p'}
+
+#{/list}
+<li>No. of tickets in Queue : ${started_workUpdates_p.size() ?: 'no'} ${new_workUpdates_p.pluralize('ticket', 'tickets')} so far</li>
+#{list items:started_workUpdates_p, as:'started_p'}
+
+#{/list}
+<li>No. of closed tickets : ${closed_workUpdates_p.size() ?: 'no'} ${new_workUpdates_p.pluralize('ticket', 'tickets')} so far</li>
+#{list items:closed_workUpdates_p, as:'closed_p'}
+
+#{/list}
+</p>

@@ -1,5 +1,5 @@
 #{extends 'main.html' /}
-<a class="btn" href="@{Application.service_status()}"> Service Status </a>
+<a class="btn" href="@{Monitor.service_status()}"> Service Status </a>
 <h2> Welcome Service Engineer, </h2>
 <h3><span> No. of new tickets : ${new_workUpdates.size() ?: 'no'}
         ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
@@ -11,12 +11,12 @@
 <h3> <span> No. of tickets in Queue : ${started_workUpdates.size() ?: 'no'}
         ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
 #{list items:started_workUpdates, as:'started'}
-<p class="post ${started_parity}"> <a href="@{Application.form(started.id)}">${started.ticket_no}</a>
+<p class="post ${started_parity}"> <a href="@{Application.form(started.id)}">${started.status}</a>
 </p>
 #{/list}
 <h3> <span> No. of closed tickets : ${closed_workUpdates.size() ?: 'no'}
         ${new_workUpdates.pluralize('ticket', 'tickets')} so far</span></h3>
 #{list items:closed_workUpdates, as:'closed'}
-<p class="post ${closed_parity}"> <a href="@{Application.form(closed.id)}">${closed.ticket_no}</a>
+<p class="post ${closed_parity}"> <a href="@{Application.form(closed.id)}">${closed.status}</a>
 </p>
 #{/list}

@@ -1,7 +1,7 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
-
+GET     /status                             Monitor.service_status
 # Import Secure routes
 #The Secure module comes with a set of default routes. Enabling them.
 *       /                                       module:secure
