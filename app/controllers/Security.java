@@ -18,7 +18,7 @@ public class Security extends Secure.Security {
 
     static void onDisconnected() {
         System.out.println(" OnDisconnected");
-        Application.index();
+        Customer_unsecured.welcome();
     }
 
     static void onAuthenticated() {
@@ -26,7 +26,7 @@ public class Security extends Secure.Security {
         Customer c = Customer.find("byEmail", connected()).first();
         switch (c.customer_type) {
             case CUSTOMER:
-                Application.index();
+                Customer_secured.welcome();
                 break;
             case ADMIN:
                 Admin.index();

@@ -1,0 +1,38 @@
+ <!--
+To change this template, choose Tools | Templates
+and open the template rin the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        ${user}
+    </head>
+    <body>
+        Customer_unsecured.welcome.html
+        ${user}
+        <h1>Welcome to Service Center</h1>
+    <li>
+        <a class="btn" href="@{Customer_unsecured.register()}">Register</a>
+    </li>
+    <li>
+        <a class="btn" href="@{Secure.login()}">Login</a>
+    </li>
+    <li>
+        <a class="btn" href="@{Customer_unsecured.all_services()}">Services Offered</a>
+    </li>
+    <li>
+        Request a new service
+    </li>
+    <li>
+        Check the status of your request
+    </li>
+    <li>
+        <a class="btn" href="@{Customer_unsecured.feedback()}">Let us know what you think</a>
+    </li>
+    <li>
+        <a class="btn" href="@{Secure.logout()}">Log out</a>
+    </li>
+</body>
+</html>
